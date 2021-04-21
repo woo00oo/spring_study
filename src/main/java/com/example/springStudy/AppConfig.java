@@ -9,23 +9,29 @@ import com.example.springStudy.member.MemberRepository;
 import com.example.springStudy.member.MemberService;
 import com.example.springStudy.member.MemberServiceImpl;
 import com.example.springStudy.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
 
     //역할에 따른 구현이 보이도록 리팩터링
-
+    @Bean
     public MemberService memberService(){
         return new MemberServiceImpl(MemberRepository());
     }
 
-    private MemberRepository MemberRepository() {
+    @Bean
+    public MemberRepository MemberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public OrderService orderService(){
         return new OrderServiceImpl(MemberRepository(), discountPolicy());
     }
 
+    @Bean
     public DiscountPolicy discountPolicy(){
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
