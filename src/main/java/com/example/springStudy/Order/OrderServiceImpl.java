@@ -1,15 +1,25 @@
 package com.example.springStudy.Order;
 
 import com.example.springStudy.discount.DiscountPolicy;
-import com.example.springStudy.discount.FixDiscountPolicy;
 import com.example.springStudy.member.Member;
 import com.example.springStudy.member.MemberRepository;
 import com.example.springStudy.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+/*
+    클라이언트인 'OrderServiceImpl'이 'DiscountPolicy' 인터페이스 뿐만 아니라, 'FixDiscountPolicy'인 구현체 클래스도 함께 의존 하고 있다. => DIP 위반
     private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    'FixDiscountPolicy를 'RateDiscountPolicy'로 변경하는 순간 'OrderServiceImpl'의 소스코드도 함께 변경 해야 한다. => OCP 위반
+    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+ */
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

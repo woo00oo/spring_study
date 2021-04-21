@@ -2,17 +2,17 @@ package com.example.springStudy;
 
 import com.example.springStudy.Order.Order;
 import com.example.springStudy.Order.OrderService;
-import com.example.springStudy.Order.OrderServiceImpl;
 import com.example.springStudy.member.Grade;
 import com.example.springStudy.member.Member;
 import com.example.springStudy.member.MemberService;
-import com.example.springStudy.member.MemberServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
