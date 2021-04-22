@@ -1,9 +1,8 @@
-package com.example.springStudy.Order;
+package com.example.springStudy.order;
 
 import com.example.springStudy.discount.DiscountPolicy;
 import com.example.springStudy.member.Member;
 import com.example.springStudy.member.MemberRepository;
-import com.example.springStudy.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 

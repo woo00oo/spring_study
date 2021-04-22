@@ -1,4 +1,4 @@
-package com.example.springStudy.Order;
+package com.example.springStudy.order;
 
 public class Order {
 

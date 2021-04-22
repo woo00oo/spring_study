@@ -1,9 +1,8 @@
 package com.example.springStudy;
 
-import com.example.springStudy.Order.OrderService;
-import com.example.springStudy.Order.OrderServiceImpl;
+import com.example.springStudy.order.OrderService;
+import com.example.springStudy.order.OrderServiceImpl;
 import com.example.springStudy.discount.DiscountPolicy;
-import com.example.springStudy.discount.FixDiscountPolicy;
 import com.example.springStudy.discount.RateDiscountPolicy;
 import com.example.springStudy.member.MemberRepository;
 import com.example.springStudy.member.MemberService;

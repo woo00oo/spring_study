@@ -1,7 +1,7 @@
 package com.example.springStudy;
 
-import com.example.springStudy.Order.Order;
-import com.example.springStudy.Order.OrderService;
+import com.example.springStudy.order.Order;
+import com.example.springStudy.order.OrderService;
 import com.example.springStudy.member.Grade;
 import com.example.springStudy.member.Member;
 import com.example.springStudy.member.MemberService;
